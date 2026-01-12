@@ -2,12 +2,11 @@ pipeline {
     agent { label 'java_node' }
 
     tools {
-        jdk 'java-11'
-        maven 'maven-3'
+        jdk 'jdk11'
+        maven 'maven (3.8.6)'
     }
 
     stages {
-
         stage('Checkout') {
             steps {
                 git branch: 'feature-1',
@@ -17,9 +16,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh '''
-                    mvn clean install
-                '''
+                sh 'mvn clean install'
             }
         }
     }
