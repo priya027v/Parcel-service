@@ -1,24 +1,26 @@
-Pipleline {
-  ageny { lable 'java_node' }
-  stages {
-    stages ('checkout') {
-      steps {
-        sh 'git clone https://github.com/priya027v/Parcel-service.git'
-      }
-    }
-   tools {
+pipeline {
+    agent { label 'java_node' }
+
+    tools {
         jdk 'java-11'
         maven 'maven-3'
-    } 
-    stage ('Build') {
-      steps {
-        sh '''
-        cd Parcel-Service
-        git Checkout feature-1
-        mvn clean install
-        '''
-      }
     }
-  }
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                git branch: 'feature-1',
+                    url: 'https://github.com/priya027v/Parcel-service.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh '''
+                    mvn clean install
+                '''
+            }
+        }
+    }
 }
-        
