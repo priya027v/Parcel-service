@@ -13,6 +13,9 @@ pipeline {
             steps {
                 sh 'java -version'
                 sh 'mvn -version'
+                sh 'export JAVA_HOME_PATH=$(dirname $(readlink -f $(which java))))
+                echo $JAVA_HOME
+                sh 'export PATH=$JAVA_HOME/bin:$PATH'
                 sh 'mvn clean install'
             }
         }
