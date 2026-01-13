@@ -11,14 +11,17 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'java -version'
-                sh 'mvn -version'
-                sh 'export JAVA_HOME_PATH=$(dirname $(readlink -f $(which java))))
-                echo $JAVA_HOME
-                sh 'export PATH=$JAVA_HOME/bin:$PATH'
-                sh 'mvn clean install'
+                sh ''' 
+                java -version
+                mvn -version
+                export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java)))) 
+                echo $JAVA_HOME export PATH=$JAVA_HOME/bin:$PATH 
+                mvn clean install 
+                '''
             }
         }
+
+        stage('Build') { steps { sh 'java -version' sh 'mvn -version' sh ''' export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java)))) echo $JAVA_HOME export PATH=$JAVA_HOME/bin:$PATH mvn clean install ''' } }
 
         stage('Deploy') {
             steps {
