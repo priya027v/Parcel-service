@@ -1,11 +1,6 @@
 pipeline {
     agent { label 'java_node' }
 
-    tools {
-        jdk 'jdk11'
-        maven 'maven (3.8.6)'
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -16,6 +11,8 @@ pipeline {
 
         stage('Build') {
             steps {
+                sh 'java -version'
+                sh 'mvn -version'
                 sh 'mvn clean install'
             }
         }
