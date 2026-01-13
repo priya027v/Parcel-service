@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'java_node' }
+    agent { label 'Java' }
 
     stages {
         stage('Checkout') {
@@ -14,6 +14,14 @@ pipeline {
                 sh 'java -version'
                 sh 'mvn -version'
                 sh 'mvn clean install'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                nohup java -jar target/*.jar > app.log 2>&1 &
+                '''
             }
         }
     }
