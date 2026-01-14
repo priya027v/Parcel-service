@@ -1,10 +1,10 @@
 pipeline {
     //agent { label 'Java' }
      agent any
- environment {
-        JFROG_USER = credentials('jfrog-creds').username
-        JFROG_API_KEY = credentials('jfrog-creds').password
-    }
+ // environment {
+ //        JFROG_USER = credentials('jfrog-creds').username
+ //        JFROG_API_KEY = credentials('jfrog-creds').password
+ //    }
     stages {
 
         stage('Checkout') {
