@@ -41,8 +41,8 @@ pipeline {
             steps {
                 sh '''
                 whoami
-                   // mvn spring-boot:run
                 '''
+                // mvn spring-boot:run
             }
         }
     }
