@@ -29,6 +29,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                whoami
                    // mvn spring-boot:run
                 '''
             }
