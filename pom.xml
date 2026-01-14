@@ -12,8 +12,19 @@
         <java.version>11</java.version>
         <spring.boot.version>2.5.4</spring.boot.version>
     </properties>
+<distributionManagement>
+    <repository>
+        <id>artifactory-releases</id>
+        <url>http://13.203.215.250:8081/artifactory/libs-release-local</url>
+    </repository>
 
-    <dependencies>
+    <snapshotRepository>
+        <id>artifactory-snapshots</id>
+        <url>http://13.203.215.250:8081/artifactory/libs-snapshot-local</url>
+    </snapshotRepository>
+</distributionManagement>
+
+         <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -25,7 +36,7 @@
             <version>${spring.boot.version}</version>
         </dependency>
     </dependencies>
-
+     
     <build>
         <plugins>
             <plugin>
