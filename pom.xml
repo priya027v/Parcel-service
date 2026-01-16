@@ -14,13 +14,13 @@
     </properties>
 <distributionManagement>
     <repository>
-        <id>artifactory-releases</id>
-        <url>http://16.16.77.14:8081/artifactory/libs-release-local</url>
+        <id>jfrog</id>
+        <url>http://13.60.214.140:8081/artifactory/libs-release-local</url>
     </repository>
 
     <snapshotRepository>
-        <id>artifactory-snapshots</id>
-        <url>http://16.16.77.14:8081/artifactory/libs-snapshot-local</url>
+        <id>jfrog</id>
+        <url>http://13.60.214.140:8081/artifactory/libs-snapshot-local</url>
     </snapshotRepository>
 </distributionManagement>
          
